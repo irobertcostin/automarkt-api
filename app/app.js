@@ -3,8 +3,13 @@ import { getCars } from "./repository.js";
 import  express from "express";
 
 
+import cors from "cors";
+
+
 const app=express();
 
+
+app.use(cors());
 
 
 app.get('/api/v1/cars',async (request,response)=>{
@@ -19,7 +24,4 @@ app.get('/api/v1/cars',async (request,response)=>{
 
 
 
-app.listen(3000,()=>{
-
-    console.log("start");
-})
+app.listen(3000)
