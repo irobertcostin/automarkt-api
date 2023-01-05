@@ -1,0 +1,53 @@
+{
+    "masini":[{
+        "Maker": "Dodge",
+        "Model": "Viper RT/10",
+        "Year": 1993,
+        "VIN": "WUADUAFG4F7051228"
+      }, {
+        "Maker": "Pontiac",
+        "Model": "Solstice",
+        "Year": 2007,
+        "VIN": "JN1BY0AR3AM374663"
+      }, {
+        "Maker": "Toyota",
+        "Model": "4Runner",
+        "Year": 2007,
+        "VIN": "JN8AZ1MU1CW994063"
+      }, {
+        "Maker": "GMC",
+        "Model": "Savana",
+        "Year": 2007,
+        "VIN": "3D7JB1EP8BG421947"
+      }, {
+        "Maker": "GMC",
+        "Model": "Savana 1500",
+        "Year": 1999,
+        "VIN": "WBXPA93426W877094"
+      }, {
+        "Maker": "Mitsubishi",
+        "Model": "Lancer Evolution",
+        "Year": 2003,
+        "VIN": "SCFEBBAK3CG372585"
+      }, {
+        "Maker": "Rolls-Royce",
+        "Model": "Phantom",
+        "Year": 2005,
+        "VIN": "WA1CYAFE1AD079309"
+      }, {
+        "Maker": "Land Rover",
+        "Model": "Range Rover",
+        "Year": 2009,
+        "VIN": "1G6YV36A785259060"
+      }, {
+        "Maker": "GMC",
+        "Model": "Yukon XL 2500",
+        "Year": 2011,
+        "VIN": "1FTWX3B59AE067021"
+      }, {
+        "Maker": "Volkswagen",
+        "Model": "Golf",
+        "Year": 1996,
+        "VIN": "WAUGGAFR1DA076426"
+      }]
+}
