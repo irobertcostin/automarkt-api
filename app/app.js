@@ -1,4 +1,4 @@
-import { getCars ,getCarsByMaker, getAllMakers} from "./repository.js";
+import { getCars ,getCarsByMaker, getAllMakers, getAllCarsByMinYear} from "./repository.js";
 
 import  express from "express";
 
@@ -34,6 +34,17 @@ app.get('/api/v1/cars/allMakers',async (req,res)=>{
     res.json(makers);
 
 })
+
+app.get('/api/v1/cars/:minYear', async (req,res)=>{
+
+    let minYear= req.params.minYear;
+    let cars = await getAllCarsByMinYear(minYear);
+    res.json(cars);
+
+})
+
+
+
 
 
 app.listen(3000,()=>{
