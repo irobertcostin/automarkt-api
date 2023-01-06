@@ -19,3 +19,46 @@ export function getCars(){
         })
     })
 }
+
+export async function getCarsByMaker(makerParam){
+
+
+    let data = await getCars();
+
+    data=data.masini;
+
+    let arr=[];
+
+    for(let i=0;i<data.length;i++){
+
+        if(data[i].maker.includes(makerParam)){
+
+            arr.push(data[i])
+
+        }
+
+    }
+
+    return arr;
+}
+
+
+export async function getAllMakers () {
+
+
+    let data = await getCars();
+    data = data.masini;
+
+    let arr = [];
+
+    for(let i=0;i<data.length;i++){
+
+        if(arr[i]!==data[i].maker){
+            arr.push(data[i].maker)
+        }
+
+    }
+
+    return arr;
+
+}
