@@ -53,12 +53,13 @@ export async function getAllMakers () {
 
     for(let i=0;i<data.length;i++){
 
-        if(arr[i]!==data[i].maker){
+        if(arr.includes(data[i].maker)==false){
             arr.push(data[i].maker)
         }
+        
 
     }
-
+    arr.sort();
     return arr;
 
 }
