@@ -1,4 +1,4 @@
-import { getCars ,getCarsByMaker, getAllMakers, getAllCarsByMinYear} from "./repository.js";
+import { getCars ,getCarsByMaker, getAllMakers, getAllCarsByMinYear,getAllModelsByMaker} from "./repository.js";
 
 import  express from "express";
 
@@ -44,6 +44,16 @@ app.get('/api/v1/cars/:minYear', async (req,res)=>{
 })
 
 
+
+app.get('/api/v1/cars/:maker/models',async (req,res)=>{
+
+
+    let maker = req.params.maker;
+    let models=await getAllModelsByMaker(maker);
+    res.json(models);
+
+
+})
 
 
 
