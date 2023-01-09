@@ -35,7 +35,9 @@ app.get('/api/v1/cars/allMakers',async (req,res)=>{
 
 })
 
-app.get('/api/v1/cars/:minYear/:maxYear', async (req,res)=>{
+
+
+app.get('/api/v1/cars/:minYear&:maxYear', async (req,res)=>{
 
     let minYear= req.params.minYear;
     let maxYear = req.params.maxYear;
@@ -43,7 +45,6 @@ app.get('/api/v1/cars/:minYear/:maxYear', async (req,res)=>{
     res.json(cars);
 
 })
-
 
 
 app.get('/api/v1/cars/:maker/models',async (req,res)=>{
@@ -55,6 +56,8 @@ app.get('/api/v1/cars/:maker/models',async (req,res)=>{
 
 
 })
+
+
 
 
 
