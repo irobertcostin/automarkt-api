@@ -64,7 +64,7 @@ export async function getAllMakers () {
 
 }
 
-export async function getAllCarsByMinYear(param) {
+export async function getAllCarsByMinYear(param1,param2) {
 
     let data = await getCars();
     data = data.masini
@@ -73,7 +73,7 @@ export async function getAllCarsByMinYear(param) {
 
     for(let i=0;i<data.length;i++){
 
-        if(data[i].year>=param){
+        if(data[i].year>=param1 && data[i].year<=param2){
             arr.push(data[i]);
         }
 
@@ -94,6 +94,7 @@ export async function getAllModelsByMaker(makerParam){
     for(let i=0; i<data.length; i++){
 
         if(data[i].maker==makerParam){
+            if(arr.includes(data[i].model)==false)
             arr.push(data[i].model)
         }
 

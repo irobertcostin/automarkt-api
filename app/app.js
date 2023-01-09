@@ -35,10 +35,11 @@ app.get('/api/v1/cars/allMakers',async (req,res)=>{
 
 })
 
-app.get('/api/v1/cars/:minYear', async (req,res)=>{
+app.get('/api/v1/cars/:minYear/:maxYear', async (req,res)=>{
 
     let minYear= req.params.minYear;
-    let cars = await getAllCarsByMinYear(minYear);
+    let maxYear = req.params.maxYear;
+    let cars = await getAllCarsByMinYear(minYear,maxYear);
     res.json(cars);
 
 })
