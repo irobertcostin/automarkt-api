@@ -1,4 +1,4 @@
-import { getCars ,getCarsByMaker, getAllMakers, getAllCarsByMinYear,getAllModelsByMaker,getAllCarsByKmMinMax} from "./repository.js";
+import { getCars ,getCarsByMaker, getAllMakers, getAllCarsByMinYear,getAllModelsByMaker,getAllCarsByKmMinMax,getAllCarsByFuelType} from "./repository.js";
 
 import  express from "express";
 
@@ -35,6 +35,16 @@ app.get('/api/v1/cars/allMakers',async (req,res)=>{
 
 })
 
+app.get('/api/v1/cars/fuel-type=:fuelType', async(req,res)=>{
+
+    let fuelType=req.params.fuelType;
+
+    let cars = await getAllCarsByFuelType(fuelType);
+    res.json(cars);
+
+
+})
+
 
 
 app.get('/api/v1/cars/:minYear&:maxYear', async (req,res)=>{
@@ -57,6 +67,8 @@ app.get('/api/v1/cars/km-filter/:minKm/:maxKm',async(req,res)=>{
 })
 
 
+
+
 app.get('/api/v1/cars/:maker/models',async (req,res)=>{
 
 
@@ -66,6 +78,8 @@ app.get('/api/v1/cars/:maker/models',async (req,res)=>{
 
 
 })
+
+
 
 
 
