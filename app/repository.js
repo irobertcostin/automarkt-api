@@ -64,25 +64,6 @@ export async function getAllMakers () {
 
 }
 
-export async function getAllCarsByMinYear(param1,param2) {
-
-    let data = await getCars();
-    data = data.masini
-
-    let arr = [];
-
-    for(let i=0;i<data.length;i++){
-
-        if(data[i].year>=param1 && data[i].year<=param2){
-            arr.push(data[i]);
-        }
-
-    }
-
-    return arr;
-
-}
-
 export async function getAllModelsByMaker(makerParam){
 
 
@@ -105,8 +86,29 @@ export async function getAllModelsByMaker(makerParam){
 
 }
 
+export async function getAllCarsByMinYear(param1) {
 
-export async function getAllCarsByKmMinMax(param1,param2){
+    let data = await getCars();
+    data = data.masini
+
+    let arr = [];
+
+    for(let i=0;i<data.length;i++){
+
+        if(data[i].year>=param1){
+            arr.push(data[i]);
+        }
+
+    }
+
+    return arr;
+
+}
+
+
+
+
+export async function getAllCarsByKmMin(param1){
 
     let data = await getCars()
     data = data.masini;
@@ -115,7 +117,7 @@ export async function getAllCarsByKmMinMax(param1,param2){
 
     for(let i=0;i<data.length;i++){
 
-        if(data[i].mileage >= param1 && data[i].mileage <=param2){
+        if(data[i].mileage >= param1){
 
             arr.push(data[i]);
             // if(arr.includes(data[i])==false) {
