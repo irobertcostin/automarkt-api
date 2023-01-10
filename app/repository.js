@@ -127,7 +127,26 @@ return arr;
 
 }
 
-// filter between by km 
+
+export async function getAllCarsByFuelType(param){
+
+    let data = await getCars();
+    data=data.masini;
+
+    let arr = [];
+
+    for(let i=0;i<data.length;i++){
+
+        if(data[i].fuel_type==param)
+        arr.push(data[i])
+
+    }
+
+    return arr;
+}
+
+
+
 // filter between by price 
 // diesel , gasoline , gpl 
 
