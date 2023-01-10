@@ -104,3 +104,37 @@ export async function getAllModelsByMaker(makerParam){
     return arr;
 
 }
+
+
+export async function getAllCarsByKmMinMax(param1,param2){
+
+    let data = await getCars()
+    data = data.masini;
+
+    let arr=[];
+
+    for(let i=0;i<data.length;i++){
+
+        if(data[i].mileage >= param1 && data[i].mileage <=param2){
+
+            arr.push(data[i]);
+            // if(arr.includes(data[i])==false) {
+                
+            // }
+        }
+    }
+return arr;
+
+}
+
+// filter between by km 
+// filter between by price 
+// diesel , gasoline , gpl 
+
+// sortation
+// newest by year
+// oldest by year
+// cheapest 
+// most expensive 
+
+// a bigger api, for the displaying results 

@@ -1,4 +1,4 @@
-import { getCars ,getCarsByMaker, getAllMakers, getAllCarsByMinYear,getAllModelsByMaker} from "./repository.js";
+import { getCars ,getCarsByMaker, getAllMakers, getAllCarsByMinYear,getAllModelsByMaker,getAllCarsByKmMinMax} from "./repository.js";
 
 import  express from "express";
 
@@ -46,6 +46,16 @@ app.get('/api/v1/cars/:minYear&:maxYear', async (req,res)=>{
 
 })
 
+app.get('/api/v1/cars/km-filter/:minKm/:maxKm',async(req,res)=>{
+
+    let minKm = req.params.minKm;
+    let maxKm = req.params.maxKm;
+
+    let cars = await getAllCarsByKmMinMax(minKm,maxKm)
+    res.json(cars);
+
+})
+
 
 app.get('/api/v1/cars/:maker/models',async (req,res)=>{
 
@@ -56,6 +66,8 @@ app.get('/api/v1/cars/:maker/models',async (req,res)=>{
 
 
 })
+
+
 
 
 
