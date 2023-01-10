@@ -1,4 +1,4 @@
-import { getCars ,getCarsByMaker, getAllMakers, getAllCarsByMinYear,getAllModelsByMaker,getAllCarsByKmMinMax,getAllCarsByFuelType} from "./repository.js";
+import { getCars ,getCarsByMaker, getAllMakers, getAllCarsByMinYear,getAllModelsByMaker,getAllCarsByKmMin,getAllCarsByFuelType} from "./repository.js";
 
 import  express from "express";
 
@@ -47,21 +47,23 @@ app.get('/api/v1/cars/fuel-type=:fuelType', async(req,res)=>{
 
 
 
-app.get('/api/v1/cars/:minYear&:maxYear', async (req,res)=>{
+app.get('/api/v1/cars/year-filter=:minYear', async (req,res)=>{
 
     let minYear= req.params.minYear;
-    let maxYear = req.params.maxYear;
-    let cars = await getAllCarsByMinYear(minYear,maxYear);
+    
+    let cars = await getAllCarsByMinYear(minYear);
     res.json(cars);
 
 })
 
-app.get('/api/v1/cars/km-filter/:minKm/:maxKm',async(req,res)=>{
+// to create maxYear
+
+app.get('/api/v1/cars/km-filter/:minKm',async(req,res)=>{
 
     let minKm = req.params.minKm;
-    let maxKm = req.params.maxKm;
+    
 
-    let cars = await getAllCarsByKmMinMax(minKm,maxKm)
+    let cars = await getAllCarsByKmMin(minKm)
     res.json(cars);
 
 })
