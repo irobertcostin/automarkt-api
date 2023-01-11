@@ -105,6 +105,25 @@ export async function getAllCarsByMinYear(param1) {
 
 }
 
+export async function getAllCarsByMaxYear(param1) {
+
+    let data = await getCars();
+    data = data.masini
+
+    let arr = [];
+
+    for(let i=0;i<data.length;i++){
+
+        if(data[i].year<=param1){
+            arr.push(data[i]);
+        }
+
+    }
+
+    return arr;
+
+}
+
 
 
 
@@ -118,6 +137,27 @@ export async function getAllCarsByKmMin(param1){
     for(let i=0;i<data.length;i++){
 
         if(data[i].mileage >= param1){
+
+            arr.push(data[i]);
+            // if(arr.includes(data[i])==false) {
+                
+            // }
+        }
+    }
+return arr;
+
+}
+
+export async function getAllCarsByMaxKm(param1){
+
+    let data = await getCars()
+    data = data.masini;
+
+    let arr=[];
+
+    for(let i=0;i<data.length;i++){
+
+        if(data[i].mileage <= param1){
 
             arr.push(data[i]);
             // if(arr.includes(data[i])==false) {
@@ -149,8 +189,57 @@ export async function getAllCarsByFuelType(param){
 
 
 
-// filter between by price 
-// diesel , gasoline , gpl 
+export async function getAllCarsByMinPrice(param){
+
+    let data = await getCars();
+    data=data.masini;
+
+    let arr=[];
+    let arr2=[];
+
+    for(let i =0;i<data.length;i++){
+
+            arr.push(data[i].price.slice(1));
+
+            
+            
+    }
+
+    for(let i=0;i<arr.length;i++){
+
+
+        if(parseInt(arr[i])>=param){
+            arr2.push(parseInt(arr[i]));
+        }
+            
+}
+    return arr2;
+
+}
+
+
+export async function getAllCarsByMaxPrice(param){
+
+
+    let data = await getCars();
+    data=data.masini; 
+    
+    let arr=[];
+    let arr1=[];
+
+    for(let i = 0; i<data.length;i++){
+        arr.push(data[i].price.slice(1));
+    }
+
+    for(let i=0;i<arr.length;i++){
+        if(parseInt(arr[i])<=param){
+            arr1.push(parseInt(arr[i]))
+        }
+    }
+
+    return arr1;
+}
+
 
 // sortation
 // newest by year
