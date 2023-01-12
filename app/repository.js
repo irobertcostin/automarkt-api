@@ -240,6 +240,29 @@ export async function getAllCarsByMaxPrice(param){
     return arr1;
 }
 
+
+export async function getAllCarsByModel(param){
+
+    let data = await getCars();
+    data = data.masini;
+
+    let arr=[];
+
+    for(let i=0;i<data.length;i++){
+        if(arr.includes(data[i])==false){
+
+            if(data[i].model==param){
+                arr.push(data[i]);
+            }
+
+        }
+
+
+    }
+
+    return arr;
+}
+
 //test
 // sortation
 // newest by year
