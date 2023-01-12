@@ -43,6 +43,23 @@ export async function getCarsByMaker(makerParam){
 }
 
 
+export function save(data){
+
+    return new Promise((resolve,reject)={
+
+        fs.writeFile(path.resolve(__dirname,'data.json'),JSON.stringify(data),(err,data)=>{
+            if(err){
+                reject(err);
+            }else{
+                resolve();
+            }
+
+        })
+    })
+
+}
+
+
 export async function getAllMakers () {
 
 
@@ -284,21 +301,7 @@ export async function addCar(car){
 
 }
 
-export function save(data){
 
-    return new Promise((resolve,reject)={
-
-        fs.writeFile(path.resolve(__dirname,'data.json'),JSON.stringify(data),(err,data)=>{
-            if(err){
-                reject(err);
-            }else{
-                resolve();
-            }
-
-        })
-    })
-
-}
 
 
 
