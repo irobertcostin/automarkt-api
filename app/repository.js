@@ -263,6 +263,61 @@ export async function getAllCarsByModel(param){
     return arr;
 }
 
+
+
+export async  function addCar(car){
+
+
+    let data = await getCars();
+
+
+        //map filter foreach
+    let ids=data.masini.map(e=>e.id);
+
+    let id=Math.floor(Math.random()*1000+1);
+
+
+    // atat timp cat exista deja mapare in arr, sa genereze id nou, pana cand gaseste unul care nu exista deja 
+    while(ids.includes(id)===true){
+
+        id=Math.floor(Math.random()*1000+1);
+    }
+
+    car.id=id;
+
+    data.masini.push(car);
+
+
+
+    await save(data);
+
+
+
+}
+
+
+
+export function save(data){
+
+
+    return new Promise((resolve,reject)=>{
+
+
+        fs.writeFile(path.resolve(__dirname,"data.json"),JSON.stringify(data),(err,data)=>{
+
+
+            if(err){
+
+                reject(err);
+            }else{
+                resolve();
+            }
+        }
+        )
+    }
+    )}
+
+
 //test
 // sortation
 // newest by year

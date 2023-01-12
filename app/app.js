@@ -1,6 +1,6 @@
-import { getCars ,getCarsByMaker, getAllMakers, getAllCarsByMinYear,getAllModelsByMaker,getAllCarsByKmMin,getAllCarsByFuelType,getAllCarsByMaxYear,getAllCarsByMaxKm,getAllCarsByMinPrice,getAllCarsByMaxPrice,getAllCarsByModel} from "./repository.js";
+import { getCars ,getCarsByMaker, getAllMakers, getAllCarsByMinYear,getAllModelsByMaker,getAllCarsByKmMin,getAllCarsByFuelType,getAllCarsByMaxYear,getAllCarsByMaxKm,getAllCarsByMinPrice,getAllCarsByMaxPrice,getAllCarsByModel,addCar} from "./repository.js";
 
-import  express from "express";
+import  express, { json } from "express";
 
 
 import cors from "cors";
@@ -10,6 +10,8 @@ const app=express();
 
 
 app.use(cors());
+
+app.use(express.json())
 
 
 app.get('/api/v1/cars',async (request,response)=>{
@@ -126,6 +128,29 @@ app.get('/api/v1/cars/price-filter/max-price=:maxPrice',async(req,res)=>{
     res.json(cars);
 
 })
+
+
+app.post('/api/v1/cars/add',async(request,response)=>{
+
+
+    console.log("asdasd")
+    let car={
+
+        maker:request.body.maker,
+        model:request.body.model,
+        year:request.body.year,
+        vin:request.body.vin
+    }
+    await addCar(car);
+
+
+    
+
+    console.log(request.body);
+
+
+    response.json(JSON.stringify(car));
+});
 
 
 
