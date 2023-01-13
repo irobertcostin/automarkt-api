@@ -1,4 +1,4 @@
-import { getCars ,getCarsByMaker, getAllMakers, getAllCarsByMinYear,getAllModelsByMaker,getAllCarsByKmMin,getAllCarsByFuelType,getAllCarsByMaxYear,getAllCarsByMaxKm,getAllCarsByMinPrice,getAllCarsByMaxPrice,getAllCarsByModel} from "./repository.js";
+import { getCars ,getCarsByMaker, getAllMakers, getAllCarsByMinYear,getAllModelsByMaker,getAllCarsByKmMin,getAllCarsByFuelType,getAllCarsByMaxYear,getAllCarsByMaxKm,getAllCarsByMinPrice,getAllCarsByMaxPrice,getAllCarsByModel, addCar} from "./repository.js";
 
 import  express from "express";
 
@@ -127,7 +127,53 @@ app.get('/api/v1/cars/price-filter/max-price=:maxPrice',async(req,res)=>{
 
 })
 
+app.post('/api/v1/cars/add',async(request,response)=>{
 
+
+    // console.log("asdasd")
+    let car={
+
+        
+
+        maker:request.body.maker,
+        model:request.body.model,
+        price:request.body.price,
+        VIN:request.body.vin,
+        year:request.body.year,
+        mileage:request.body.mileage,
+        horsepower:request.body.horsepower,
+        engine_size:request.body.engine_size,
+        gas_consumption:request.body.gas_consumption,
+        doors:request.body.doors,
+        color:request.body.color,
+        receipt:request.body.receipt,
+        finance_eligibility:request.body.finance_eligibility,
+        provenance:request.body.provenance,
+        registered:request.body.registered,
+        location:request.body.location,
+        first_owner:request.body.first_owner,
+        no_accidents:request.body.no_accidents,
+        service_book:request.body.service_book,
+        ad_date:request.body.ad_date,
+        ad_id:request.body.ad_id,
+        ad_time:request.body.ad_time,
+        negociable:request.body.negociable,
+        fuel_type:request.body.fuel_type
+        // maker:request.body.maker,
+        // model:request.body.model,
+        // year:request.body.year,
+        // vin:request.body.vin
+    }
+    await addCar(car);
+
+
+    
+    
+    console.log(request.body);
+
+
+    response.json(JSON.stringify(car));
+});
 
 
 

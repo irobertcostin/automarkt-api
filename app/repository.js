@@ -24,24 +24,25 @@ export async function getCarsByMaker(makerParam){
 
 
     let data = await getCars();
-
+    
     data=data.masini;
+
+    console.log(data[0]);
 
     let arr=[];
 
-    for(let i=0;i<data.length;i++){
+    // for(let i=0;i<data.length;i++){
 
-        if(data[i].maker.includes(makerParam)){
+    //     if(data[i].maker.includes(makerParam)){
 
-            arr.push(data[i])
+    //         arr.push(data[i])
 
-        }
+    //     }
 
-    }
-
+    // }
+    
     return arr;
 }
-
 
 
 
