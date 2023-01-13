@@ -12,6 +12,8 @@ const app=express();
 app.use(cors());
 
 
+app.use(express.json());
+
 app.get('/api/v1/cars',async (request,response)=>{
     const masini= await getCars();
     console.log("aici");
