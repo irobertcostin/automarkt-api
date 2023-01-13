@@ -295,6 +295,20 @@ export async  function addCar(car){
 
 }
 
+export async function deleteCar(id){
+
+
+    let data = await getCars();
+
+    // cu filter, filtram data.masini , daca e.id e diferit de id 
+    data.masini=data.masini.filter(e=>e.id!=id);
+
+
+
+    await save(data);
+
+}
+
 
 
 export function save(data){
@@ -316,6 +330,10 @@ export function save(data){
         )
     }
     )}
+
+
+
+
 
 
 //test

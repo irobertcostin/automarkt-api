@@ -1,4 +1,4 @@
-import { getCars ,getCarsByMaker, getAllMakers, getAllCarsByMinYear,getAllModelsByMaker,getAllCarsByKmMin,getAllCarsByFuelType,getAllCarsByMaxYear,getAllCarsByMaxKm,getAllCarsByMinPrice,getAllCarsByMaxPrice,getAllCarsByModel,addCar} from "./repository.js";
+import { getCars ,getCarsByMaker, getAllMakers, getAllCarsByMinYear,getAllModelsByMaker,getAllCarsByKmMin,getAllCarsByFuelType,getAllCarsByMaxYear,getAllCarsByMaxKm,getAllCarsByMinPrice,getAllCarsByMaxPrice,getAllCarsByModel,addCar,deleteCar} from "./repository.js";
 
 import  express, { json } from "express";
 
@@ -152,6 +152,16 @@ app.post('/api/v1/cars/add',async(request,response)=>{
     response.json(JSON.stringify(car));
 });
 
+
+app.delete("/api/v1/cars/:id",async (request,response)=>{
+
+    let id = request.params.id;
+
+    await deleteCar(id);
+    
+    response.json("ok");
+
+})
 
 
 
