@@ -305,7 +305,7 @@ export async function deleteCar(id){
 
 
 
-    await save(data);
+    save(data);
 
 }
 

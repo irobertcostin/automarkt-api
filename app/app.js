@@ -153,7 +153,7 @@ app.post('/api/v1/cars/add',async(request,response)=>{
 });
 
 
-app.delete("/api/v1/cars/:id",async (request,response)=>{
+app.delete("/api/v1/cars/delete/:id",async (request,response)=>{
 
     let id = request.params.id;
 
